@@ -3,7 +3,7 @@
 import { Chart, useChart } from "@chakra-ui/charts"
 import { Area, AreaChart, Tooltip, Bar, BarChart, CartesianGrid, Cell, XAxis, YAxis } from "recharts"
 import Layout from "@/components/layout/layout"
-import { Card, Stat } from "@chakra-ui/react"
+import { Box, Card, Stat } from "@chakra-ui/react"
 import { LuGlobe } from "react-icons/lu"
 
 const Dashboard = () => {
@@ -113,6 +113,7 @@ const Dashboard = () => {
 
   return (
     <Layout>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
         {/* Support Tickets Overview */}
         <Card.Root className="p-4 rounded-sm transition">
@@ -266,9 +267,6 @@ const Dashboard = () => {
           </BarChart>
         </Chart.Root>
       </div>
-
-
-
 
     </Layout>
   )

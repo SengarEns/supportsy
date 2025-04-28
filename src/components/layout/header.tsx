@@ -86,6 +86,7 @@ const Header: React.FC = () => {
             position="sticky"
             top={0}
             zIndex={10}
+            _dark={{ bg: "black" }}
         >
             <Flex alignItems="center" gap={2}>
                 <Box w={8} h={8} bg="purple.600" borderRadius="full" display="flex" alignItems="center" justifyContent="center">

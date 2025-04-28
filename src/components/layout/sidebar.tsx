@@ -30,6 +30,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             top={0}
             left={0}
             zIndex={20}
+            _dark={{ bg: "black" }}
         >
             <Flex direction="column" h="full">
                 <Flex p={{ base: 2, md: 4 }} justifyContent="space-between">
