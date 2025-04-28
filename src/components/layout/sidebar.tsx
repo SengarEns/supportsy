@@ -14,7 +14,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
     const menuItems = [
         { name: 'Dashboard', Icon: Home, location: '/dashboard' },
         { name: 'Analytics', Icon: BarChart2, location: '/dashboard' },
-        { name: 'Chats', Icon: MessageSquare, location: '/dashboard' },
+        { name: 'Chats', Icon: MessageSquare, location: '/chats' },
         { name: 'Team', Icon: Users, location: '/dashboard' },
     ];
 

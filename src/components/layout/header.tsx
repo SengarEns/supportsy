@@ -6,6 +6,7 @@ import { Moon, Sun } from 'lucide-react';
 
 const Header: React.FC = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
+    
 
     const toggleDarkMode = () => {
         const newMode = !isDarkMode;

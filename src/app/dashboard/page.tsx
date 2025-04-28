@@ -1,13 +1,13 @@
 import Layout from '@/components/layout/layout'
 import React from 'react'
 
-const Agent = () => {
+const Dashboard = () => {
   return (
     <Layout>
 
-    <div>Agent</div>
+    <div>Dashboard</div>
     </Layout>
   )
 }
 
-export default Agent
+export default Dashboard
