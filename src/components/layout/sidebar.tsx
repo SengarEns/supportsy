@@ -14,7 +14,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
     const menuItems = [
         { name: 'Dashboard', Icon: Home, location: '/dashboard' },
         { name: 'Analytics', Icon: BarChart2, location: '/dashboard' },
-        { name: 'Chats', Icon: MessageSquare, location: '/dashboard' },
+        { name: 'Chats', Icon: MessageSquare, location: '/chats' },
         { name: 'Team', Icon: Users, location: '/dashboard' },
     ];
 
@@ -30,6 +30,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
             top={0}
             left={0}
             zIndex={20}
+            _dark={{ bg: "black" }}
         >
             <Flex direction="column" h="full">
                 <Flex p={{ base: 2, md: 4 }} justifyContent="space-between">
