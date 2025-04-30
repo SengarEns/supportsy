@@ -1,8 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { Box, createListCollection, Flex, IconButton, Input, Portal, Select, Text } from '@chakra-ui/react';
+import { Avatar, Box, createListCollection, Flex, IconButton, Image, Input, Portal, Select, Text } from '@chakra-ui/react';
 import { AlertTriangle, Ban, Book, CheckCircle, Clock, Coffee, Headphones, Hourglass, LogOut, Moon, Phone, Plane, Sun, XCircle } from 'lucide-react';
+import { Organisation } from '@/config/global';
 
 const Header: React.FC = () => {
     const [isDarkMode, setIsDarkMode] = useState(false);
@@ -78,38 +79,27 @@ const Header: React.FC = () => {
     return (
         <Flex
             as="header"
-            bg="white"
+            // bg="white"
             boxShadow="sm"
-            p={4}
+            p={2}
             justifyContent="space-between"
             alignItems="center"
             position="sticky"
             top={0}
             zIndex={10}
+            h={"100%"}
             _dark={{ bg: "black" }}
         >
-            <Flex alignItems="center" gap={2}>
-                <Box w={8} h={8} bg="purple.600" borderRadius="full" display="flex" alignItems="center" justifyContent="center">
-                    <Text color="white" fontWeight="bold">S</Text>
-                </Box>
-                <Text fontSize="xl" fontWeight="semibold" color="gray.800">Supportsy</Text>
+            <Flex alignItems="center" gap={3}>
+            {/* <Avatar.Root shape="rounded" size="xl">
+                        <Avatar.Image src={Organisation.logo} />
+                    </Avatar.Root> */}
+                    <Image rounded="md" src={Organisation.logo} alt="Dan Abramov" boxSize="40px" />
+                <Text fontSize="14px" fontWeight="semibold" color="gray.800">Supportsy</Text>
             </Flex>
+
             <Flex alignItems="center" gap={4}>
-                <Input
-                    placeholder="Search..."
-                    size="sm"
-                    borderRadius="lg"
-                    maxW="200px"
-                    variant="outline"
-                    _focus={{ borderColor: 'purple.500' }}
-                />
-                <Flex alignItems="center" gap={2}>
-                    <Text fontSize="sm" color="gray.600">ExpertCSV</Text>
-                    {/* <Avatar size="sm" bg="gray.200" /> */}
-                </Flex>
-
-
-                <Select.Root collection={statusOptions}>
+                <Select.Root collection={statusOptions} size={"xs"} width="200px">
                     {/* <Select.HiddenSelect />
                     <Select.Label>Select framework</Select.Label> */}
                     <Select.Control>
@@ -124,7 +114,7 @@ const Header: React.FC = () => {
                         <Select.Positioner>
                             <Select.Content>
                                 {statusOptions.items.map((item) => (
-                                    <Select.Item item={item} key={item} className='w-fit'>
+                                    <Select.Item item={item} key={item} className='p-0'>
                                         {item}
                                         <Select.ItemIndicator />
                                     </Select.Item>
@@ -132,24 +122,20 @@ const Header: React.FC = () => {
                             </Select.Content>
                         </Select.Positioner>
                     </Portal>
-                    {/* <Portal>
-                        <Select.Positioner>
-                            <Select.Content>
-                                {statusOptions.items.map((item) => (
-                                    <Select.Item
-                                        item={item}
-                                        key={item.label}
-                                        className="flex items-center gap-2 w-fit"
-                                    >
-                                        <item.icon size={20} aria-hidden="true" />
-                                        <span>{item.label}</span>
-                                        <Select.ItemIndicator />
-                                    </Select.Item>
-                                ))}
-                            </Select.Content>
-                        </Select.Positioner>
-                    </Portal> */}
+
                 </Select.Root>
+
+            
+                    <Avatar.Root shape="rounded" size="xs">
+                        <Avatar.Fallback name="Random User" />
+                        <Avatar.Image src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04" />
+                    </Avatar.Root>
+                    {/* <Text fontSize="sm" color="gray.600">ExpertCSV</Text> */}
+
+                
+
+
+
 
                 <IconButton
                     aria-label="Toggle Sidebar"

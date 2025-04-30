@@ -655,13 +655,14 @@ const Dashboard = () => {
 
 
   return (
-    <Layout>
+    <Layout >
+      
       {/* Page Header */}
-      <Box p={6} bg={themeColors.background} borderBottomWidth="1px">
+      <Box p={6} borderBottomWidth="1px" >
         <Heading size="lg" color={"gray.700"}>
           Customer Support Dashboard
         </Heading>
-        <Text color={themeColors.secondary} mt={2}>
+        <Text fontSize="sm" color={themeColors.secondary} >
           Monitor key support metrics, ticket trends, and customer satisfaction.
         </Text>
       </Box>
@@ -709,7 +710,7 @@ const Dashboard = () => {
         {/* Resolved Tickets Status */}
         <Card.Root
           bg={"white"}
-          p={4}
+          p={0}
           shadow="sm"
           borderRadius="md"
           transition="all 0.2s"
