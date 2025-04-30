@@ -132,23 +132,6 @@ const Header: React.FC = () => {
                             </Select.Content>
                         </Select.Positioner>
                     </Portal>
-                    {/* <Portal>
-                        <Select.Positioner>
-                            <Select.Content>
-                                {statusOptions.items.map((item) => (
-                                    <Select.Item
-                                        item={item}
-                                        key={item.label}
-                                        className="flex items-center gap-2 w-fit"
-                                    >
-                                        <item.icon size={20} aria-hidden="true" />
-                                        <span>{item.label}</span>
-                                        <Select.ItemIndicator />
-                                    </Select.Item>
-                                ))}
-                            </Select.Content>
-                        </Select.Positioner>
-                    </Portal> */}
                 </Select.Root>
 
                 <IconButton
