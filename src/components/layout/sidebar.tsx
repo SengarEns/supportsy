@@ -4,19 +4,17 @@ import React from 'react';
 import { Box, Flex, IconButton, Text } from '@chakra-ui/react';
 import { Home, BarChart2, MessageSquare, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
+import { IconType } from 'react-icons'; // Import IconType for the Icon property
+import { SidebarProps } from '@/types/sidebar/interface';
 
-interface SidebarProps {
-    isOpen: boolean;
-    toggleSidebar: () => void;
-}
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
-    const menuItems = [
-        { name: 'Dashboard', Icon: Home, location: '/owner/dashboard' },
-        { name: 'Analytics', Icon: BarChart2, location: '/dashboard' },
-        { name: 'Chats', Icon: MessageSquare, location: '/chats' },
-        { name: 'Team', Icon: Users, location: '/owner/agents' },
-    ];
+const Sidebar: React.FC<SidebarProps> = ({ menuItems,isOpen, toggleSidebar }) => {
+    // const menuItems = [
+    //     { name: 'Dashboard', Icon: Home, location: '/owner/dashboard' },
+    //     { name: 'Analytics', Icon: BarChart2, location: '/dashboard' },
+    //     { name: 'Chats', Icon: MessageSquare, location: '/chats' },
+    //     { name: 'Team', Icon: Users, location: '/owner/agents' },
+    // ];
 
     return (
         <Box
@@ -46,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
                     </IconButton>
                 </Flex>
                 <Box flex={1} overflowY="auto">
-                    {menuItems.map((item, index) => {
+                {menuItems && menuItems.map((item, index) => {
                         const { Icon } = item;
                         return (
                             <Link href={item.location} key={index}>
@@ -76,3 +74,4 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, toggleSidebar }) => {
 };
 
 export default Sidebar;
+
