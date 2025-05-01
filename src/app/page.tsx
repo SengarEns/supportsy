@@ -86,9 +86,11 @@ const Login: React.FC<LoginProps> = () => {
               <Checkbox.Control />
               <Checkbox.Label>Accept terms and conditions</Checkbox.Label>
             </Checkbox.Root>
+            <Link href='/dashboard'>
             <Button colorScheme="teal" size="md" w="full">
               Log in
             </Button>
+            </Link>
           </Stack>
 
           <Text textAlign="center" fontSize="sm" mt={4}>
