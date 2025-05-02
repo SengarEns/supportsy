@@ -1479,24 +1479,21 @@ function Team() {
                                 </Table.Header>
                                 <Table.Body>
                                     {filteredAdmins.map((admin) => (
-                                        // <Link href={`/owner/agents/${admin.id}`}>
-                                            <Table.Row key={admin.id} onClick={() => router.push(`/owner/agents/${admin.id}`)} cursor="pointer" _hover={{ bg: "gray.50" }}>
-                                                {/* <Table.Cell>{admin.image}</Table.Cell> */}
-                                                <Table.Cell><Image
-                                                    boxSize="30px"
-                                                    borderRadius="sm"
-                                                    src={admin.image}
-                                                    alt={admin.name}
-                                                    objectFit="cover"
-                                                /></Table.Cell>
-                                                <Table.Cell>{admin.id}</Table.Cell>
-                                                <Table.Cell>{admin.name}</Table.Cell>
-                                                <Table.Cell>{admin.phone}</Table.Cell>
-                                                <Table.Cell>{admin.role}</Table.Cell>
-                                                <Table.Cell>{admin.lastLogin}</Table.Cell>
-                                                <Table.Cell textAlign="end">{admin.status}</Table.Cell>
-                                            </Table.Row>
-                                        // </Link>
+                                        <Table.Row key={admin.id} onClick={() => router.push(`/owner/agents/${admin.id}`)} cursor="pointer" _hover={{ bg: "gray.50" }}>
+                                            <Table.Cell><Image
+                                                boxSize="30px"
+                                                borderRadius="sm"
+                                                src={admin.image}
+                                                alt={admin.name}
+                                                objectFit="cover"
+                                            /></Table.Cell>
+                                            <Table.Cell>{admin.id}</Table.Cell>
+                                            <Table.Cell>{admin.name}</Table.Cell>
+                                            <Table.Cell>{admin.phone}</Table.Cell>
+                                            <Table.Cell>{admin.role}</Table.Cell>
+                                            <Table.Cell>{admin.lastLogin}</Table.Cell>
+                                            <Table.Cell textAlign="end">{admin.status}</Table.Cell>
+                                        </Table.Row>
                                     ))}
                                 </Table.Body>
                             </Table.Root>
