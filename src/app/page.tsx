@@ -1,6 +1,6 @@
-'use client';
+"use client"
 
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Flex,
@@ -12,12 +12,12 @@ import {
   Link,
   Image,
   Stack,
-  Tabs,
-  TabsList,
 } from '@chakra-ui/react';
-import { RiMailLine } from 'react-icons/ri';
+import { LoginInterface } from '@/types/auth/interface';
+import { UserJson } from '@/config/jsonData/Dummy';
+import { useAuthContext } from '@/context/authContext';
 
-// Define TypeScript types for props (if needed in the future)
+// Define Type716cript types for props (if needed in the future)
 interface LoginProps { }
 
 const Login: React.FC<LoginProps> = () => {
@@ -25,10 +25,33 @@ const Login: React.FC<LoginProps> = () => {
   const textColor = 'gray.900';
   const tealColor = 'teal.700';
   const borderColor = 'gray.200';
+  const [authCredentials, setAuthCredentials] = useState<LoginInterface>({
+    email: '',
+    password: '',
+  });
+
+  const { user, isAuthenticated, login, logout } = useAuthContext()
+  
+  const InputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setAuthCredentials((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const HandleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault(); 
+    try {
+      await login(authCredentials.email, authCredentials.password);
+      console.log("Login successful");
+      // Optionally redirect or update UI after successful login
+    } catch (error) {
+      console.error("Login failed:", error);
+      // Optionally show error message to user (e.g., invalid credentials)
+    }
+  };
 
   return (
     <Flex h="100vh" bg="gray.900" color="white">
-      {/* Left Section: Signup Form */}
+      {/* Left Section: Login Form */}
       <Box
         w="50%"
         display="flex"
@@ -42,57 +65,48 @@ const Login: React.FC<LoginProps> = () => {
           <Heading as="h2" size="xl" mb={6}>
             Welcome Back
           </Heading>
-          <Stack p={4}>
-            <Box>
-              <Text fontSize="sm" fontWeight="medium" mb={1}>
-                Name
-              </Text>
-              <Input
-                placeholder="Enter your name"
-                bg="gray.50"
-                borderColor={borderColor}
-                _focus={{ borderColor: tealColor }} // Use _focus variant for focus styling
-              />
-            </Box>
-            <Box>
-              <Text fontSize="sm" fontWeight="medium" mb={1}>
-                Email
-              </Text>
-              <Input
-                type="email"
-                placeholder="Enter your email"
-                bg="gray.50"
-                borderColor={borderColor}
-                _focus={{ borderColor: tealColor }} // Use _focus variant for focus styling
-              />
-            </Box>
-            <Box>
-              <Text fontSize="sm" fontWeight="medium" mb={1}>
-                Password
-              </Text>
-              <Input
-                type="password"
-                placeholder="Enter your password"
-                bg="gray.50"
-                borderColor={borderColor}
-                _focus={{ borderColor: tealColor }} // Use _focus variant for focus styling
-              />
-            </Box>
-            {/* <Checkbox colorScheme="teal" defaultChecked>
-              I agree to all the Terms & Conditions
-            </Checkbox> */}
-            <Checkbox.Root>
-              <Checkbox.HiddenInput />
-              <Checkbox.Control />
-              <Checkbox.Label>Accept terms and conditions</Checkbox.Label>
-            </Checkbox.Root>
-            <Link href='/dashboard'>
-            <Button colorScheme="teal" size="md" w="full">
-              Log in
-            </Button>
-            </Link>
-          </Stack>
-
+          <form onSubmit={HandleSubmit}>
+            <Stack gap={4}>
+              <Box>
+                <Text fontSize="sm" fontWeight="medium" mb={1}>
+                  Email
+                </Text>
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  bg="gray.50"
+                  value={authCredentials.email}
+                  borderColor={borderColor}
+                  onChange={InputHandler}
+                  _focus={{ borderColor: tealColor }}
+                />
+              </Box>
+              <Box>
+                <Text fontSize="sm" fontWeight="medium" mb={1}>
+                  Password
+                </Text>
+                <Input
+                  type="password"
+                  name="password"
+                  placeholder="Enter your password"
+                  bg="gray.50"
+                  value={authCredentials.password}
+                  onChange={InputHandler}
+                  borderColor={borderColor}
+                  _focus={{ borderColor: tealColor }}
+                />
+              </Box>
+              <Checkbox.Root>
+                <Checkbox.HiddenInput />
+                <Checkbox.Control />
+                <Checkbox.Label>Accept terms and conditions</Checkbox.Label>
+              </Checkbox.Root>
+              <Button colorScheme="teal" size="md" w="full" type="submit">
+                Log in
+              </Button>
+            </Stack>
+          </form>
           <Text textAlign="center" fontSize="sm" mt={4}>
             Not have an account?{' '}
             <Link
@@ -105,6 +119,7 @@ const Login: React.FC<LoginProps> = () => {
           </Text>
         </Stack>
       </Box>
+      {/* Right Section: Branding */}
       <Box
         w="50%"
         bg="teal.900"
@@ -124,7 +139,6 @@ const Login: React.FC<LoginProps> = () => {
           w={20}
           h={20}
         />
-
         <Box position="relative" mb={6} w="full" h="250px">
           <Image
             src="/assets/images/areaChart.png"
@@ -144,10 +158,10 @@ const Login: React.FC<LoginProps> = () => {
             objectFit="contain"
           />
         </Box>
-        <Text textAlign="center" fontSize="sm" mb={2} color={"gray.400"}>
+        <Text textAlign="center" fontSize="sm" mb={2} color="gray.400">
           Very simple way you can engage
         </Text>
-        <Text textAlign="center" fontSize="md" color={"gray.400"}>
+        <Text textAlign="center" fontSize="md" color="gray.400">
           Welcome to DAILY Inventory Management System! Efficiently track and
           manage your inventory with ease.
         </Text>

@@ -1,3 +1,5 @@
+import { UserInterface } from "@/types/user/interface"
+
 export const AgentJson = () => [
     {
       "agent_id": "A001",
@@ -165,3 +167,71 @@ export const AgentJson = () => [
       "location": "San Diego"
     }
   ]
+
+
+export const UserJson = ():UserInterface[] => [
+  {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "name": "Alice Admin",
+      "email": "master@supportsy.com",
+      "password": "123456",
+      "role": "master",
+      "created_at": "2025-05-02T12:00:00Z",
+
+  },
+  {
+      "id": "b2c3d4e5-f6a7-8901-bcde-f2345678901a",
+      "name": "Bob Owner",
+      "email": "owner@supportsy.com",
+      "password": "123456",
+      "role": "softwareOwner",
+      "created_at": "2025-05-02T12:01:00Z",
+
+  },
+  {
+      "id": "c3d4e5f6-a7b8-9012-cdef-3456789012bc",
+      "name": "Charlie Brand",
+      "email": "brand@supportsy.com",
+      "password": "123456",
+      "role": "brand",
+      "created_at": "2025-05-02T12:02:00Z",
+
+  },
+  {
+      "id": "d4e5f6a7-b8c9-0123-def0-4567890123cd",
+      "name": "Diana Manager",
+      "email": "diana.manager@supportsy.com",
+      "password": "123456",
+      "role": "manager",
+      "created_at": "2025-05-02T12:03:00Z",
+
+  },
+  {
+      "id": "e5f6a7b8-c9d0-1234-efa1-5678901234de",
+      "name": "Eve Floor",
+      "email": "eve.floor@supportsy.com",
+      "password": "123456",
+      "role": "floorManager",
+      "created_at": "2025-05-02T12:04:00Z",
+
+  },
+  {
+      "id": "f6a7b8c9-d0e1-2345-fab2-6789012345ef",
+      "name": "Frank Super",
+      "email": "frank.super@supportsy.com",
+      "password": "123456",
+      "role": "superAgent",
+      "created_at": "2025-05-02T12:05:00Z",
+
+  },
+  {
+      "id": "a7b8c9d0-e1f2-3456-abc3-7890123456fa",
+      "name": "Grace Agent",
+      "email": "grace.agent@supportsy.com",
+      "password": "123456",
+      "role": "agent",
+      "created_at": "2025-05-02T12:06:00Z",
+
+  }
+]
+

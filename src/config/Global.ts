@@ -7,25 +7,24 @@ export const Organisation = {
     logo:"https://firebasestorage.googleapis.com/v0/b/inspiration-gallery.appspot.com/o/reportImages%2FFrame%201%20(2).png?alt=media&token=4efdda2e-b231-4569-a98f-2e92492fcda1"
 }
 
-
-
   export const menuItems: MenuItems = {
     master: [
-      { name: 'Dashboard', Icon: Home, location: '/owner/dashboard' },
+      { name: 'Dashboard', Icon: Home, location: '/master/dashboard' },
       { name: 'Analytics', Icon: BarChart2, location: '/dashboard' },
       { name: 'Chats', Icon: MessageSquare, location: '/chats' },
-      { name: 'Team', Icon: Users, location: '/owner/agents' },
+      { name: 'Team', Icon: Users, location: '/master/agents' },
+      { name: 'Brand', Icon: Users, location: '/master/brands' },
     ],
     brand:[
         { name: 'Dashboard', Icon: Home, location: '/owner/dashboard' },
         { name: 'Analytics', Icon: BarChart2, location: '/dashboard' },
         { name: 'Chats', Icon: MessageSquare, location: '/chats' },
-        { name: 'Team', Icon: Users, location: '/owner/agents' },
+        // { name: 'Team', Icon: Users, location: '/owner/agents' },
     ],
     superAgent: [
       { name: 'Dashboard', Icon: Home, location: '/owner/dashboard' },
       { name: 'Analytics', Icon: BarChart2, location: '/dashboard' },
-      { name: 'Chats', Icon: MessageSquare, location: '/chats' },
+      // { name: 'Chats', Icon: MessageSquare, location: '/chats' },
       { name: 'Team', Icon: Users, location: '/owner/agents' },
     ],
     agent:[

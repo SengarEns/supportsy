@@ -11,7 +11,7 @@ export interface MenuItems {
 export interface SidebarProps {
     isOpen: boolean;
     toggleSidebar: () => void;
-    menuItems: MenuItems;
+    menuItems: MenuItemsII;
 }
 
 export interface MenuItem {
@@ -21,3 +21,8 @@ export interface MenuItem {
     Icon: IconType; // For the Icon component
     // Icon: React.ComponentType
 }
+
+
+export interface MenuItemsII {
+    [key: string]: MenuItem[];
+  }
