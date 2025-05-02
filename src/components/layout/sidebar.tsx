@@ -5,10 +5,17 @@ import { Box, Flex, IconButton, Text } from '@chakra-ui/react';
 import { Home, BarChart2, MessageSquare, Users, ChevronRight, ChevronLeft } from 'lucide-react';
 import Link from 'next/link';
 import { IconType } from 'react-icons'; // Import IconType for the Icon property
-import { SidebarProps } from '@/types/sidebar/interface';
+import { MenuItems, SidebarProps } from '@/types/sidebar/interface';
 
 
-const Sidebar: React.FC<SidebarProps> = ({ menuItems,isOpen, toggleSidebar }) => {
+
+
+
+const Sidebar: React.FC<SidebarProps> = ({ menuItems,isOpen, toggleSidebar }:SidebarProps) => {
+    const localdata = localStorage.getItem("user")
+    const userData = JSON.parse(localdata as string)?.role
+
+console.log("UserDataUserData",userData)
     return (
         <Box
             as="aside"
@@ -37,7 +44,7 @@ const Sidebar: React.FC<SidebarProps> = ({ menuItems,isOpen, toggleSidebar }) =>
                     </IconButton>
                 </Flex>
                 <Box flex={1} overflowY="auto">
-                {menuItems && menuItems.master.map((item, index) => {
+                {menuItems && userData && menuItems[userData]?.map((item: any, index: number) => {
                         const { Icon } = item;
                         return (
                             <Link href={item.location} key={index}>

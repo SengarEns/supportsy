@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { Avatar, Box, createListCollection, Flex, IconButton, Image, Input, Portal, Select, Text } from '@chakra-ui/react';
-import { AlertTriangle, Ban, Book, CheckCircle, Clock, Coffee, Headphones, Hourglass, LogOut, Moon, Phone, Plane, Sun, XCircle } from 'lucide-react';
+import { Avatar, Box, Button, createListCollection, Flex, IconButton, Image, Input, Portal, Select, Text } from '@chakra-ui/react';
+import { AlertTriangle, Ban, Book, CheckCircle, Clock, Coffee, Headphones, Hourglass, Icon, LogOut, Moon, Phone, Plane, Plus, Sun, XCircle } from 'lucide-react';
 import { Organisation } from '@/config/Global';
 
 const Header: React.FC = () => {
@@ -39,41 +39,41 @@ const Header: React.FC = () => {
         }
     }, []);
 
-    const statusOptions = createListCollection({
-        items: [
-            "Available",
-            "Offline",
-            "Away",
-            "In a Meeting",
-            "On a Call",
-            "Busy",
-            "Break",
-            "Training",
-            "After Call Work",
-            "Do Not Disturb",
-            "Vacation",
-            "Pending Logout",
-            "Technical Issues"
-        ]
-    })
-
     // const statusOptions = createListCollection({
     //     items: [
-    //         { label: "Available", icon: CheckCircle },
-    //         { label: "Offline", icon: XCircle },
-    //         { label: "Away", icon: Clock },
-    //         { label: "In a Meeting", icon: Headphones },
-    //         { label: "On a Call", icon: Phone },
-    //         { label: "Busy", icon: Ban },
-    //         { label: "Break", icon: Coffee },
-    //         { label: "Training", icon: Book },
-    //         { label: "After Call Work", icon: Hourglass },
-    //         { label: "Do Not Disturb", icon: Moon },
-    //         { label: "Vacation", icon: Plane },
-    //         { label: "Pending Logout", icon: LogOut },
-    //         { label: "Technical Issues", icon: AlertTriangle }
+    //         "Available",
+    //         "Offline",
+    //         "Away",
+    //         "In a Meeting",
+    //         "On a Call",
+    //         "Busy",
+    //         "Break",
+    //         "Training",
+    //         "After Call Work",
+    //         "Do Not Disturb",
+    //         "Vacation",
+    //         "Pending Logout",
+    //         "Technical Issues"
     //     ]
-    // });
+    // })
+
+    const statusOptions = createListCollection({
+        items: [
+            { label: "Available", icon: CheckCircle },
+            { label: "Offline", icon: XCircle },
+            { label: "Away", icon: Clock },
+            { label: "In a Meeting", icon: Headphones },
+            { label: "On a Call", icon: Phone },
+            { label: "Busy", icon: Ban },
+            { label: "Break", icon: Coffee },
+            { label: "Training", icon: Book },
+            { label: "After Call Work", icon: Hourglass },
+            { label: "Do Not Disturb", icon: Moon },
+            { label: "Vacation", icon: Plane },
+            { label: "Pending Logout", icon: LogOut },
+            { label: "Technical Issues", icon: AlertTriangle }
+        ]
+    });
 
 
     return (
@@ -94,10 +94,13 @@ const Header: React.FC = () => {
                 <Image src={Organisation.logo} h='100%' />
         
             <Flex alignItems="center" gap={4}>
-                
-                
+
+{/* master buttons */}
+
+<Button name='button'><Plus/></Button>
 
 
+                {/*  */}
                 <Select.Root collection={statusOptions} w={"200px"}>
                     {/* <Select.HiddenSelect />
                     <Select.Label>Select framework</Select.Label> */}
@@ -113,8 +116,8 @@ const Header: React.FC = () => {
                         <Select.Positioner>
                             <Select.Content>
                                 {statusOptions.items.map((item) => (
-                                    <Select.Item item={item} key={item} className='w-fit'>
-                                        {item}
+                                    <Select.Item item={item} className='w-fit'>
+                                   <item.icon/>  {item.label}
                                         <Select.ItemIndicator />
                                     </Select.Item>
                                 ))}
