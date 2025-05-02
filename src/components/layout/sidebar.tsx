@@ -9,13 +9,6 @@ import { SidebarProps } from '@/types/sidebar/interface';
 
 
 const Sidebar: React.FC<SidebarProps> = ({ menuItems,isOpen, toggleSidebar }) => {
-    // const menuItems = [
-    //     { name: 'Dashboard', Icon: Home, location: '/owner/dashboard' },
-    //     { name: 'Analytics', Icon: BarChart2, location: '/dashboard' },
-    //     { name: 'Chats', Icon: MessageSquare, location: '/chats' },
-    //     { name: 'Team', Icon: Users, location: '/owner/agents' },
-    // ];
-
     return (
         <Box
             as="aside"
@@ -44,7 +37,7 @@ const Sidebar: React.FC<SidebarProps> = ({ menuItems,isOpen, toggleSidebar }) =>
                     </IconButton>
                 </Flex>
                 <Box flex={1} overflowY="auto">
-                {menuItems && menuItems.map((item, index) => {
+                {menuItems && menuItems.master.map((item, index) => {
                         const { Icon } = item;
                         return (
                             <Link href={item.location} key={index}>

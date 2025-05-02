@@ -17,7 +17,6 @@ const SuperAgentDashboard = () => {
 
     return (
         <Box>
-            Super Ajent Dashboard is live...
             <Layout >
                 asd
             </Layout>

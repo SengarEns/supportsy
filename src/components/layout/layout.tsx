@@ -10,14 +10,14 @@ interface LayoutProps {
     children: React.ReactNode;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children}) => {
+const Layout: React.FC<LayoutProps> = ({ children }) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
-       
+
     return (
         <Flex h="100vh" direction={{ base: 'column', md: 'row' }}>
             <Sidebar menuItems={menuItems} isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
@@ -26,16 +26,20 @@ const Layout: React.FC<LayoutProps> = ({ children}) => {
                 w={{ base: '100%', md: 'auto' }}
                 transition="margin-left 0.3s ease"
                 flex={1}
-                
+
+
             >
-                <Header />
+                <Box h='60px'>
+                    <Header />
+                </Box>
                 <Box
                     as="main"
                     flex={1}
                     overflowY="auto"
                     bg="gray.100"
-                    p={{ base: 4, md: 6 }}
-                    minH={{ base: 'auto', md: 'calc(100vh - 64px)' }}
+                    // p={{ base: 4, md: 6 }}
+                    // minH={{ base: 'auto', md: 'calc(100% - 60px)' }}
+                    h={{md: 'calc(100% - 60px)'}}
                     _dark={{ bg: "black" }}
                 >
                     {children}
