@@ -5,6 +5,7 @@ export interface SidebarProps {
     toggleSidebar: () => void;
     menuItems: MenuItem[];
 }
+
 export interface MenuItem {
     // id: number;
     name: string;

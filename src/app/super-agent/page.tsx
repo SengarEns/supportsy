@@ -1,3 +1,4 @@
+"use client"
 import Layout from "@/components/layout/layout";
 import Sidebar from "@/components/layout/sidebar";
 import { MenuItem } from "@/types/sidebar/interface";
