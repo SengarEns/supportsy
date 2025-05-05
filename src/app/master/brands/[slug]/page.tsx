@@ -403,7 +403,7 @@ function BrandDetails() {
                                 <HStack gap="4">
                                     {brand.socialMedia.twitter && (
                                         // <Tooltip label="Visit Twitter" hasArrow>
-                                            <Link href={brand.socialMedia.twitter} isExternal>
+                                            <Link href={brand.socialMedia.twitter}  >
                                                 <IconButton
                                                     size="md"
                                                     colorScheme="twitter"
@@ -419,7 +419,7 @@ function BrandDetails() {
                                     )}
                                     {brand.socialMedia.instagram && (
                                         // <Tooltip label="Visit Instagram" hasArrow>
-                                            <Link href={brand.socialMedia.instagram} isExternal>
+                                            <Link href={brand.socialMedia.instagram}  >
                                                 <IconButton
                                                     size="md"
                                                     colorScheme="pink"
@@ -435,7 +435,7 @@ function BrandDetails() {
                                     )}
                                     {brand.socialMedia.linkedin && (
                                         // <Tooltip label="Visit LinkedIn" hasArrow>
-                                            <Link href={brand.socialMedia.linkedin} isExternal>
+                                            <Link href={brand.socialMedia.linkedin}  >
                                                 <IconButton
                                                     size="md"
                                                     colorScheme="linkedin"
